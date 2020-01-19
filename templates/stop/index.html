@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Godziny odjazdu z przystanku {{ stop_name }}</h1>
+
+    {% for bus in buses %}
+        <h2><a href="/bus/{{ bus.busname }}">{{ bus.busname }}</a></h2>
+        {% for time in timetable_list %}
+
+            {% if time.busname == bus.busname %}
+                {{ time.time }}
+
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+{% endblock content %}

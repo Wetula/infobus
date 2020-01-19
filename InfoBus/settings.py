@@ -24,7 +24,7 @@ SECRET_KEY = 'p&k+8gzu=kg$(oht-wnpqc@8vrna@s+%!9j@y=jdtbjmr7uauh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['80.209.233.63']
+ALLOWED_HOSTS = ['80.209.233.63', '2kbe.c.time4vps.cloud', 'shumatsu.xyz', 'www.shumatsu.xyz', 'bd2.shumatsu.xyz']
 
 # Application definition
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'infobus.apps.InfobusConfig',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Custom
+                'infobus.context_processors.bus_proc',
+                'infobus.context_processors.stop_proc',
             ],
         },
     },
@@ -75,7 +80,11 @@ WSGI_APPLICATION = 'InfoBus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.path.join(BASE_DIR, 'db.mysql'),
+        'NAME': 'infobus',
+        'USER': 'db2',
+        'PASSWORD': 'bazydanych2',
+        'HOST': 'localhost',
+        'PORT': '3306',
         'OPTIONS': {
             'read_default_file': '/etc/mysql/my.cnf',
         },
@@ -118,3 +127,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

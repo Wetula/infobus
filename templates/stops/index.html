@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Przystanki autobusowe</h1>
+
+    {% if stop_list %}
+        <ul>
+            {% for stop in stop_list %}
+                <li><a href="stop/{{ stop.stopname }}">{{ stop.stopname }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Brak przystanków.</p>
+    {% endif %}
+
+{% endblock content %}

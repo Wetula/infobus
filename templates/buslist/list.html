@@ -1,0 +1,5 @@
+{% block body %}
+    {% for line in all_lines %}
+        <a class="dropdown-item" href="/bus/{{ line.busname }}">{{ line.busname }}</a>
+    {% endfor %}
+{% endblock %}

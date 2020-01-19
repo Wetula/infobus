@@ -1,0 +1,5 @@
+{% block body %}
+    {% for stop in all_stops %}
+        <a class="dropdown-item" href="/stop/{{ stop.stopname }}">{{ stop.stopname }}</a>
+    {% endfor %}
+{% endblock %}

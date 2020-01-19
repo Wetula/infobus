@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Linie autobusowe</h1>
+
+    {% if buses_list %}
+        <ul>
+            {% for bus in buses_list %}
+                <li><a href="bus/{{ bus.busname }}">{{ bus.busname }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Brak linii.</p>
+    {% endif %}
+
+{% endblock content %}
